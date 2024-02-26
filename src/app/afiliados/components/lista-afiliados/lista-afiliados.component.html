@@ -1,0 +1,35 @@
+<div class="container">
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Nombres</th>
+        <th scope="col">Apellidos</th>
+        <th scope="col">Fecha de Nacimiento</th>
+        <th scope="col">Dirección</th>
+        <th scope="col">Teléfono</th>
+        <th scope="col">Genero</th>
+        <th scope="col">Opciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let afiliado of afiliados">
+        <td>{{ afiliado.nombres | titlecase}}</td>
+        <td>{{ afiliado.apellidos | titlecase}}</td>
+        <td>{{ afiliado.fechaNacimiento | date:'dd MMM yyyy' }}</td>
+        <td>{{ afiliado.direccion | titlecase}}</td>
+        <td>{{ afiliado.telefono }}</td>
+        <td>{{ afiliado.genero | titlecase}}</td>
+        <td>
+          <button class="btn btn-warning" (click)="actualizarAfiliado(afiliado)">
+            <i class="fa-solid fa-pen-to-square"></i>
+            <!-- Editar -->
+          </button>
+          <button class="btn btn-danger " style="margin-left: 5px;" (click)="eliminarAfiliado(afiliado.id!)">
+            <i class="fa-solid fa-trash-can text-dark"></i>
+            <!-- Eliminar -->
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
